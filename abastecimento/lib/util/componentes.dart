@@ -39,6 +39,8 @@ class Componentes {
     );
   }
 
+  criarRadioButton(combustivel, controlador) {}
+
   criaBotao(rotulo, funcao, altura, largura) {
     return SizedBox(
       height: altura,
@@ -56,7 +58,8 @@ class Componentes {
       leading: CircleAvatar(
         backgroundColor: cor,
       ),
-      title: Text(a.combustivel),
+      title: Text(a.data),
+      subtitle: Text(a.combustivel),
       trailing: Text('R\$ ${a.valor}'),
     );
   }

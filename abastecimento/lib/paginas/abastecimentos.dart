@@ -31,8 +31,8 @@ class _AbastecimentosState extends State<Abastecimentos> {
       body: ListView.builder(
         itemCount: listaAbastecimentos.length,
         itemBuilder: (context, indice) {
-          return ListTile(
-            title: Text(listaAbastecimentos[indice].data),
+          return Componentes().criaItemAbastecimento(
+            listaAbastecimentos[indice],
           );
         },
       ),
@@ -45,6 +45,7 @@ class _AbastecimentosState extends State<Abastecimentos> {
                 atualizaPagina: atualizaPagina),
           );
         },
+        child: const Icon(Icons.plus_one),
       ),
     );
   }
