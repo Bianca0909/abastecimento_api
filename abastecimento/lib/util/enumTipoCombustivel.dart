@@ -1,0 +1,1 @@
+enum EnumTipoCombustivel { GASOLINA, ALCOOL }

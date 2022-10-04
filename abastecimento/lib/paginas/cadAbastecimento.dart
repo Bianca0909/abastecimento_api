@@ -47,8 +47,7 @@ class _CadAbastecimentoState extends State<CadAbastecimento> {
                 "Data", false, TextInputType.datetime, dataController),
             Componentes().criaTextField(
                 "Valor", false, TextInputType.number, valorController),
-            Componentes().criaTextField("Combustivel", false,
-                TextInputType.datetime, combustivelController),
+            Componentes().criarRadioButton(),
             const SizedBox(height: 10),
             Componentes()
                 .criaBotao("Cadastrar", cadastrar, 50, double.infinity),
