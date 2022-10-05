@@ -1,11 +1,9 @@
 import 'package:abastecimento/classes/abastecimento.dart';
 import 'package:flutter/material.dart';
-import 'package:group_radio_button/group_radio_button.dart';
-
 
 class Componentes {
-  String _tipoCombustivel = "Gasolina";
-  final List <String> _combustiveis = ["Gasolina", "Álcool"];
+  final String _tipoCombustivel = "Gasolina";
+  final List<String> _combustiveis = ["Gasolina", "Álcool"];
 
   criaAppBar(texto, acao) {
     return AppBar(
@@ -44,21 +42,6 @@ class Componentes {
     );
   }
 
-  criarRadioButton() {
-    return Column(children: <Widget>[
-      RadioGroup<String>.builder(
-        groupValue: _tipoCombustivel,
-        onChanged: (value) => setState(() => {
-          _tipoCombustivel = value;
-        }),
-        items: _combustiveis,
-        itemBuilder: (item) => RadioButtonBuilder(
-          item,
-        ),
-      ),
-    ]);
-  }
-
   criaBotao(rotulo, funcao, altura, largura) {
     return SizedBox(
       height: altura,
@@ -77,7 +60,7 @@ class Componentes {
         backgroundColor: cor,
       ),
       title: Text(a.data),
-      //subtitle: Enum(a.),
+      subtitle: Text(a.combustivel),
       trailing: Text('R\$ ${a.valor}'),
     );
   }
