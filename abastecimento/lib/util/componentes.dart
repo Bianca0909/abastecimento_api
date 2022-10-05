@@ -1,9 +1,12 @@
 import 'package:abastecimento/classes/abastecimento.dart';
-import 'package:abastecimento/util/enumTipoCombustivel.dart';
 import 'package:flutter/material.dart';
+import 'package:group_radio_button/group_radio_button.dart';
+
 
 class Componentes {
-  EnumTipoCombustivel tipoCombustivel = EnumTipoCombustivel.GASOLINA;
+  String _tipoCombustivel = "Gasolina";
+  final List <String> _combustiveis = ["Gasolina", "Álcool"];
+
   criaAppBar(texto, acao) {
     return AppBar(
       title: criaTexto(texto, 30),
@@ -43,26 +46,16 @@ class Componentes {
 
   criarRadioButton() {
     return Column(children: <Widget>[
-      RadioListTile<EnumTipoCombustivel>(
-        title: const Text('Gasolina'),
-        value: EnumTipoCombustivel.GASOLINA,
-        groupValue: tipoCombustivel,
-        onChanged: (EnumTipoCombustivel? value) {
-          setState() {
-            tipoCombustivel = EnumTipoCombustivel.GASOLINA;
-          }
-        },
+      RadioGroup<String>.builder(
+        groupValue: _tipoCombustivel,
+        onChanged: (value) => setState(() => {
+          _tipoCombustivel = value;
+        }),
+        items: _combustiveis,
+        itemBuilder: (item) => RadioButtonBuilder(
+          item,
+        ),
       ),
-      RadioListTile<EnumTipoCombustivel>(
-        title: const Text('Álcool'),
-        value: EnumTipoCombustivel.ALCOOL,
-        groupValue: tipoCombustivel,
-        onChanged: (EnumTipoCombustivel? value) {
-          setState() {
-            tipoCombustivel = EnumTipoCombustivel.ALCOOL;
-          }
-        },
-      )
     ]);
   }
 
@@ -84,7 +77,7 @@ class Componentes {
         backgroundColor: cor,
       ),
       title: Text(a.data),
-      subtitle: Text(a.combustivel),
+      //subtitle: Enum(a.),
       trailing: Text('R\$ ${a.valor}'),
     );
   }

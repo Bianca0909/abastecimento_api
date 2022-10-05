@@ -13,6 +13,8 @@ class Main extends StatefulWidget {
   State<Main> createState() => _MyWidgetState();
 }
 
+//enum SingingCharacter { Gasolina, Alcool }
+
 class _MyWidgetState extends State<Main> {
   @override
   Widget build(BuildContext context) {
